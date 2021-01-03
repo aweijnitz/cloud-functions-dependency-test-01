@@ -16,11 +16,19 @@ This repo was created to isolate the issue described on Stack Overflow: https://
 There are two ways around the problem and both are illustrated on separate brances in this repo.
 
 ```
-branch "main" - Deploying this version always fails, because the function cannot be initialized, due to google cloud not beeing able to locate the package dependency.
+branch "main" 
+- Deploying this version always fails, because the function cannot be initialized, 
+due to google cloud not beeing able to locate the package dependency.
 
-branch "working-version" - This version fixes the issue by changing the '--source' parameter to the deployment command. Bad: --source=./src  Good: --source=.
+branch "working-version" 
+- This version fixes the issue by changing the '--source' parameter to the deployment command. 
+Bad: --source=./src  
+Good: --source=.
 
-branch "index-in-root" - This version fixes the issue by hoisting the index.js file out of the src/ folder and into the project root AND by changing the '--source' parameter to the deployment command to be '--source=.'
+branch "index-in-root" 
+- This version fixes the issue by hoisting the index.js file out of the src/ folder 
+and into the project root AND by changing the '--source' parameter to the deployment 
+command to be '--source=.'
 
 ```
 
