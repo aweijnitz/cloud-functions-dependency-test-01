@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "deployHelloWorld": "gcloud functions deploy helloWorld --source=./src --entry-point=helloWorld --runtime nodejs12 --memory=256MB --max-instances=3 --trigger-topic=ornitho-bus",
+    "deployHelloWorld": "gcloud functions deploy helloWorld --source=. --entry-point=helloWorld --runtime nodejs12 --memory=256MB --max-instances=3 --trigger-topic=ornitho-bus",
     "test": "echo \"No test specified\" && exit 0"
   },
   "author": "Anders Weijnitz",

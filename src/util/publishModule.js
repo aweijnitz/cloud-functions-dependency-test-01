@@ -20,17 +20,6 @@ const publishMessage = async (msgObj, msgType) => {
   }
 }
 
-
-
-const helloWorld = async () => {
-  console.log('Posting greeting to pub sub');
-  return publishMessage({
-    greeting: 'Hello World!'
-  }, {
-    type: 'GreetingMessage'
-  });
-}
-
 module.exports = {
-  helloWorld
+  publishMessage
 };
