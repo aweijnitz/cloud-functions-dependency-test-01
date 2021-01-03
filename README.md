@@ -2,13 +2,27 @@
 
 Repository to debug issue with module loading of Google Cloud Functions
 
-## Summary
+## Problem Summary
 
-For some reason, Google Cloud Functions doesn't seem to be able to load the @google.cloud/* modlues in node.js functions.
+For some reason, Google Cloud Functions doesn't seem to be able to load the @google.cloud/* modlues in node.js functions under some circumstances.
 
-This repository is a minimal scaffold to illustrate the issue. When deploying it, the initialization of the function will fail.
+This repository is a minimal scaffold to illustrate the issue and how to fix it.
+**When deploying the main branch, the initialization of the function will fail, although it works locally and builds deploys correctly using the Google Buildpack locally**.
 
-See https://stackoverflow.com/questions/65538584/google-cloud-functions-sometimes-doesnt-find-google-cloud-dependencies-altho
+This repo was created to isolate the issue described on Stack Overflow: https://stackoverflow.com/questions/65538584/google-cloud-functions-sometimes-doesnt-find-google-cloud-dependencies-altho
+
+## Working Versions
+
+There are two ways around the problem and both are illustrated on separate brances in this repo.
+
+```
+branch "main" - Deploying this version always fails, because the function cannot be initialized, due to google cloud not beeing able to locate the package dependency.
+
+branch "working-version" - This version fixes the issue by changing the '--source' parameter to the deployment command. Bad: --source=./src  Good: --source=.
+
+branch "index-in-root" - This version fixes the issue by hoisting the index.js file out of the src/ folder and into the project root AND by changing the '--source' parameter to the deployment command to be '--source=.'
+
+```
 
 ## Reproducing the issue
 
